@@ -9,9 +9,10 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
-  "@/*": ["./client/src/*"]
+      "@/*": ["./client/src/*"],  
+      "@shared/*": ["./shared/*"]
 },
     "types": ["node"]
   },

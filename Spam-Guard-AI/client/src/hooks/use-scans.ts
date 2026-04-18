@@ -35,7 +35,8 @@ export function useScan(id: number) {
       return api.scans.get.responses[200].parse(data) as ScanWithDetails;
     },
     // Poll while status is 'pending'
-    refetchInterval: (data) => (data?.status === "pending" ? 1000 : false),
+    refetchInterval: (query) =>
+  query.state.data?.status === "pending" ? 1000 : false,
   });
 }
 

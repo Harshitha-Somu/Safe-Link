@@ -24,7 +24,7 @@ export default function Home() {
     }
   };
 
-  const getRiskBadgeVariant = (level: string | null) => {
+  /*const getRiskBadgeVariant = (level: string | null) => {
     switch (level) {
       case "Safe": return "safe";
       case "Low Risk": return "low";
@@ -32,7 +32,25 @@ export default function Home() {
       case "Spam": return "spam";
       default: return "neutral";
     }
-  };
+  };*/
+
+
+  function getRiskBadgeVariant(risk: string) {
+  switch (risk) {
+    case "safe":
+    case "low":
+      return "secondary";
+
+    case "suspicious":
+      return "outline";
+
+    case "spam":
+      return "destructive";
+
+    default:
+      return "default";
+  }
+}
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -115,7 +133,7 @@ export default function Home() {
                   </div>
                   <div className="flex items-center gap-4">
                     {scan.status === "pending" ? (
-                      <Badge variant="neutral" className="animate-pulse">Scanning...</Badge>
+                      <Badge variant="secondary" className="animate-pulse">Scanning...</Badge>
                     ) : (
                       <Badge variant={getRiskBadgeVariant(scan.riskLevel)}>
                         {scan.riskLevel || "Unknown"}

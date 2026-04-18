@@ -12,7 +12,10 @@ import { format } from "date-fns";
 
 export default function ScanDetails() {
   const [, params] = useRoute("/scans/:id");
-  const id = parseInt(params?.id || "0");
+  if (!params) return null;
+  if (!params) return null;
+
+  const id = parseInt((params as { id: string }).id);
   const { data: scan, isLoading, error } = useScan(id);
 
   const handleShareReport = () => {

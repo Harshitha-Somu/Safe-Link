@@ -14,8 +14,12 @@ export const scans = pgTable("scans", {
 });
 
 // === BASE SCHEMAS ===
-export const insertScanSchema = createInsertSchema(scans).pick({
+/*export const insertScanSchema = createInsertSchema(scans).pick({
   url: true,
+});*/
+
+export const insertScanSchema = z.object({
+  url: z.string(),
 });
 
 // === TYPES ===

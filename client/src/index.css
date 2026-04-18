@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-display: 'Outfit', sans-serif;
+
+  /* Cyber Security Dark Theme */
+  --background: 224 71% 4%;
+  --foreground: 210 40% 98%;
+
+  --card: 222 47% 11%;
+  --card-foreground: 210 40% 98%;
+
+  --popover: 222 47% 11%;
+  --popover-foreground: 210 40% 98%;
+
+  --primary: 160 84% 39%; /* Cyber Green */
+  --primary-foreground: 144 30% 98%;
+
+  --secondary: 217 19% 27%;
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 217 19% 27%;
+  --muted-foreground: 215 20% 65%;
+
+  --accent: 186 100% 50%; /* Cyan Neon */
+  --accent-foreground: 222 47% 11%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 217 19% 27%;
+  --input: 217 19% 27%;
+  --ring: 160 84% 39%;
+
+  --radius: 0.5rem;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-accent/30 selection:text-accent-foreground;
+    font-family: var(--font-sans);
+    background-image: 
+      radial-gradient(circle at 50% 0%, hsl(var(--primary) / 0.05) 0%, transparent 50%),
+      linear-gradient(to bottom, transparent, hsl(var(--background)) 100%),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231f2937' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-bold tracking-tight;
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+  }
+  .border-glow {
+    box-shadow: 0 0 10px hsl(var(--primary) / 0.2);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--secondary));
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}

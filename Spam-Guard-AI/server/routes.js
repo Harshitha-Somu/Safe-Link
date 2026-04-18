@@ -1,6 +1,6 @@
-import { storage } from "./storage";
-import { api } from "../shared/routes";
-import { insertScanSchema } from "../shared/schema";
+import { storage } from "./storage.js";
+import { api } from "../shared/routes.js";
+import { insertScanSchema } from "../shared/schema.js";
 import axios from "axios";
 const whois = require("whois-json");
 import { z } from "zod";

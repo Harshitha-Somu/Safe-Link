@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/Badge";
 import { ShieldAlert, ShieldCheck } from "lucide-react";
 
 export default function ScanReport() {
-  const [, params] = useRoute("/report/:id");
+  const [match, params] = useRoute("/report/:id") as [boolean, { id: string }];
   const scanId = params?.id;
   const [scan, setScan] = useState<any>(null);
   const [loading, setLoading] = useState(true);

@@ -2,7 +2,7 @@ import { storage } from "./storage.js";
 import { api } from "../shared/routes.js";
 import { insertScanSchema } from "../shared/schema.js";
 import axios from "axios";
-const whois = require("whois-json");
+import whois from "whois-json";
 import { z } from "zod";
 export async function registerRoutes(httpServer, app) {
     app.post(api.scans.create.path, async (req, res) => {

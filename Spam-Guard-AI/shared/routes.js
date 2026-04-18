@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { insertScanSchema } from "./schema";
+import { insertScanSchema } from "./schema.js";
 export const errorSchemas = {
     validation: z.object({
         message: z.string(),
